@@ -1,0 +1,25 @@
+//<script>
+//http://backbonerelational.org/
+
+Zoo = Backbone.RelationalModel.extend({
+    relations: [{
+        type: Backbone.HasMany,
+        key: 'animals',
+        relatedModel: 'Animal',
+        collectionType: 'AnimalCollection',
+        reverseRelation: {
+            key: 'livesIn',
+            includeInJSON: 'id'
+            // 'relatedModel' is automatically set to 'Zoo'; the 'relationType' to 'HasOne'.
+        }
+    }]
+});
+
+Animal = Backbone.RelationalModel.extend({
+    urlRoot: '/animal/'
+});
+
+AnimalCollection = Backbone.Collection.extend({
+    model: Animal
+});
+//</script>

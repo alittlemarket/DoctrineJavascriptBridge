@@ -1,0 +1,21 @@
+{
+    "name": "com.alittlemarket/doctrine-js-bridge",
+    "description": "Generate javascript model class from Doctrine entity",
+    "minimum-stability": "stable",
+    "license": "LGPL-2.1",
+    "authors": [
+        {
+            "name": "Sylvain Artois",
+            "email": "sylvaina@alittlemarket.fr"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "2.4.2",
+        "twig/twig": "1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Com\\": "src/"
+        }
+    }
+}

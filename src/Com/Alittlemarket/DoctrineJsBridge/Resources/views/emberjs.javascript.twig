@@ -1,0 +1,28 @@
+//<script>
+//http://emberjs.com/guides/object-model/classes-and-instances/
+//http://emberjs.com/guides/models/
+
+App.Person = Ember.Object.extend({
+
+});
+
+App.Person = DS.Model.extend({
+    firstName: DS.attr('string'),
+    birthday:  DS.attr('date')
+});
+
+App.Order = DS.Model.extend({
+    lineItems: DS.hasMany('lineItem')
+});
+
+App.LineItem = DS.Model.extend({
+    order: DS.belongsTo('order')
+});
+
+App.IndexRoute = Ember.Route.extend({
+    model: function() {
+        return this.store.find('person', 1);
+    }
+});
+
+//</script>

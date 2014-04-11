@@ -1,0 +1,24 @@
+//<script>
+//http://guides.sproutcore.com/records.html
+
+App.Address = SC.Record.extend({
+    street: SC.Record.attr(String),
+    number: SC.Record.attr(Number),
+    contact: SC.Record.toOne(
+            'App.Contact',
+            { isMaster: NO }
+    )
+});
+
+App.Contact = SC.Record.extend({
+    firstName: SC.Record.attr(String, { key: 'first_name' }),
+    lastName: SC.Record.attr(String, { key: 'last_name' }),
+    age: SC.Record.attr(Number),
+    dateOfBirth: SC.Record.attr(SC.DateTime, { format: 'YY-mm-dd' }),
+    primaryKey: 'uid',
+    address: SC.Record.toOne(
+            'App.Address',
+            { isMaster: YES, inverse: 'contact' }
+    )
+});
+//</script>

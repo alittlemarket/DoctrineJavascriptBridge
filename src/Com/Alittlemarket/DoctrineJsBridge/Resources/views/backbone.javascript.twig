@@ -1,0 +1,35 @@
+//<script>
+//http://backbonejs.org/#Model
+
+{% if entity.useRequireJS %}
+define([
+    "underscore",
+    "backbone"
+], function(_, Backbone) {
+{% endif %}
+
+    var {% if entity.namespace is not empty %}{{ entity.namespace }}.{% endif %}{{ entity.name }} = Backbone.Model.extend({
+        initialize: function(){},
+        {% if not entity.useCollection %}
+        urlRoot: "{{ entity.name|lower }}"
+        {% endif %}
+    });
+
+    {% if entity.useCollection %}
+    var {% if entity.namespace is not empty %}{{ entity.namespace }}.{% endif %}{{ entity.collection }} = Backbone.Collection.extend({
+        model: {% if entity.namespace is not empty %}{{ entity.namespace }}.{% endif %}{{ entity.name }},
+        url: "{{ entity.collection|lower }}"
+    });
+    {% endif %}
+
+{% if entity.useRequireJS %}
+    return {
+        {{ entity.name }}: {{ entity.name }}
+        {% if entity.useCollection %}
+        {{ entity.collection }}: {{ entity.collection }}
+        {% endif %}
+    };
+
+});
+{% endif %}
+//</script>

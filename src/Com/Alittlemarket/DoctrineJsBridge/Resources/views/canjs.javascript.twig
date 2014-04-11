@@ -1,0 +1,10 @@
+//<script>
+//http://canjs.com/
+
+var Todo = can.Model.extend({
+    findAll: 'GET /todos',
+    findOne: 'GET /todos/{id}',
+    update: 'PUT /todos/{id}',
+    destroy: 'DELETE /todos/{id}'
+}, {});
+//</script>
