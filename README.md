@@ -19,3 +19,6 @@ And javascripts templates:
 *src/Com/Alittlemarket/DoctrineJsBridge/Resources/views*
 
 
+## Credits
+
+![ALittleMarket](http://assets_orig.alittlemarket.com/image/header/logo.png)
